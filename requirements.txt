@@ -5,4 +5,5 @@ pillow
 streamlit-webrtc
 numpy
 matplotlib
-streamlit-webrtc av
+streamlit-webrtc 
+av
