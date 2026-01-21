@@ -9,9 +9,7 @@ import matplotlib.pyplot as plt
 
 # -------------------------
 # Page Config
-# -------------------------
-st.set_page_config(page_title=“Facial Emotion Detector”, layout=“centered”)
-st.title(“Facial Emotion Detection”)
+
 
 # -------------------------
 # Load Model
