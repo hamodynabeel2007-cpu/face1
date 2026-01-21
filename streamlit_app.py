@@ -33,11 +33,11 @@ face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_fronta
 faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 
 for (x, y, w, h) in faces:
-roi_gray = gray[y:y+h, x:x+w]
-roi_gray = cv2.resize(roi_gray, (48, 48))
-roi_gray = roi_gray.astype('float32') / 255.0
-roi_gray = np.expand_dims(roi_gray, axis=0)
-roi_gray = np.expand_dims(roi_gray, axis=-1)
+ roi_gray = gray[y:y+h, x:x+w]
+ roi_gray = cv2.resize(roi_gray, (48, 48))
+ roi_gray = roi_gray.astype('float32') / 255.0
+ roi_gray = np.expand_dims(roi_gray, axis=0)
+ roi_gray = np.expand_dims(roi_gray, axis=-1)
 
 # Prediction (Step G)
 prediction = model.predict(roi_gray)
