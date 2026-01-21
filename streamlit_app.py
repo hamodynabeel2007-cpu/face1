@@ -10,7 +10,7 @@ import av # Necessary for WebRTC frame processing
 @st.cache_resource
 def load_model():
 # Updated to match your uploaded file name
-return tf.keras.models.load_model("model (1).h5")
+ return tf.keras.models.load_model("model (1).h5")
 
 model = load_model()
 
@@ -22,11 +22,11 @@ cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 )
 
 def preprocess_face(img):
-gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-faces = face_cascade.detectMultiScale(gray, 1.3, 5)
+ gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+ faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 
 if len(faces) == 0:
-return None, None
+ return None, None
 
 x, y, w, h = faces[0]
 face = gray[y:y+h, x:x+w]
@@ -34,17 +34,17 @@ face = cv2.resize(face, (48, 48))
 face = face / 255.0
 face = np.reshape(face, (1, 48, 48, 1))
 
-return face, (x, y, w, h)
+  return face, (x, y, w, h)
 
 def predict_emotion(face_img):
 preds = model.predict(face_img)
 emotion = EMOTIONS[np.argmax(preds)]
 confidence = float(np.max(preds))
-return emotion, confidence
+ return emotion, confidence
 
 
 st.set_page_config(page_title="Facial Emotion Detector", layout="centered")
-st.title("🎭 Facial Emotion Detection")
+st.title("Facial Emotion Detection")
 
 mode = st.radio("Choose Input Method:", ["Upload Image", "Webcam"])
 
@@ -88,7 +88,7 @@ img, label, (x, y - 10),
 cv2.FONT_HERSHEY_SIMPLEX, 0.8, (0, 255, 0), 2
 )
 
-return av.VideoFrame.from_ndarray(img, format="bgr24")
+ return av.VideoFrame.from_ndarray(img, format="bgr24")
 
 if mode == "Webcam":
 st.info("Allow webcam access to start detection.")
