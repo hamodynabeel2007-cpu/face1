@@ -8,7 +8,7 @@ from PIL import Image
 
 @st.cache_resource
 def load_fer_model():
-return load_model("your_model_name.h5")
+ return load_model("your_model_name.h5")
 
 model = load_fer_model()
 labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']
@@ -29,7 +29,6 @@ st.image(image, caption='Uploaded Image', use_column_width=True)
 img_array = np.array(image.convert('RGB'))
 gray = cv2.cvtColor(img_array, cv2.COLOR_RGB2GRAY)
 
-# Face Detection (Crucial for FER2013)
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 faces = face_cascade.detectMultiScale(gray, 1.3, 5)
 
