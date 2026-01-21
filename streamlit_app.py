@@ -62,7 +62,7 @@ if mode == "Upload Image":
             cv2.rectangle(img_bgr, (x, y), (x+w, y+h), (0, 255, 0), 2)
             img_rgb = cv2.cvtColor(img_bgr, cv2.COLOR_BGR2RGB)
 
-            st.image(img_rgb, caption="Detected Face", use_column_width=True)5. Webcam Support (Using streamlit-webrtc)
+            st.image(img_rgb, caption="Detected Face", use_column_width=True)
 from streamlit_webrtc import webrtc_streamer, VideoProcessorBase
 
 class EmotionProcessor(VideoProcessorBase):
