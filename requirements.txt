@@ -1,2 +1,8 @@
 streamlit
-opencv-python
+opencv-python(cv2)
+tensorflow
+keras
+pillow 
+PIL
+numpy
+pandas
