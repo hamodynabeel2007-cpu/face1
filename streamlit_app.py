@@ -92,3 +92,4 @@ if mode == "Webcam":
         media_stream_constraints={"video": True, "audio": False},
         async_processing=True,
     )
+
