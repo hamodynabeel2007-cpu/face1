@@ -6,7 +6,7 @@ def load_model():
 
 model = load_model()
 
-EMOTIONS = ["Angry", "Disgust", "Fear", "Happy", "Sad", "Surprise", "Neutral"]3. Face Detection + Preprocessing
+EMOTIONS = ["Angry", "Disgust", "Fear", "Happy", "Sad", "Surprise", "Neutral"]
 import cv2
 import numpy as np
 from PIL import Image
