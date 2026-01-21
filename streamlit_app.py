@@ -34,7 +34,7 @@ def predict_emotion(face_img):
     preds = model.predict(face_img)
     emotion = EMOTIONS[np.argmax(preds)]
     confidence = float(np.max(preds))
-    return emotion, confidence4. Streamlit UI (Upload + Webcam Toggle)
+    return emotion, confidence4
 import streamlit as st
 
 st.set_page_config(page_title="Facial Emotion Detector", layout="centered")
