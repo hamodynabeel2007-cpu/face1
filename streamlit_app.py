@@ -18,7 +18,7 @@ st.title(“:performing_arts: Facial Emotion Detection”)
 # -------------------------
 @st.cache_resource
 def load_model():
-    return tf.keras.models.load_model(“emotion_model.h5")
+    return tf.keras.models.load_model(“model(1).h5")
 
 model = load_model()
 
