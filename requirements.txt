@@ -1,9 +1,8 @@
 streamlit
 tensorflow
-opencv-python
+opencv-python-headless
+numpy
 pillow
 streamlit-webrtc
-numpy
-matplotlib
-streamlit-webrtc 
 av
+plotly
