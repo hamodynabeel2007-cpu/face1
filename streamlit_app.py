@@ -8,7 +8,7 @@ from PIL import Image
 
 @st.cache_resource
 def load_fer_model():
- return load_model("your_model_name.h5")
+ return load_model("emotion_model.h5")
 
 model = load_fer_model()
 labels = ['Angry', 'Disgust', 'Fear', 'Happy', 'Neutral', 'Sad', 'Surprise']
