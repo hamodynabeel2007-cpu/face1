@@ -1,8 +1,7 @@
 streamlit
-opencv-python-headless
-Pillow
-numpy
-tensorflow-cpu
-opencv-python
 tensorflow
+opencv-python
+pillow
 streamlit-webrtc
+numpy
+matplotlib
