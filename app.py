@@ -44,10 +44,11 @@ CLASS_NAMES = [
 # IMAGE PREPROCESSING
 # -------------------------------
 def preprocess_image(image):
-    image = image.convert("RGB")
-    image = image.resize((IMG_SIZE, IMG_SIZE))
-    img_array = np.array(image) / 255.0
-    img_array = np.expand_dims(img_array, axis=0)
+    image = image.convert("L")          # ✅ grayscale
+    image = image.resize((48, 48))       # ✅ correct size
+    img_array = np.array(image) / 255.0  # normalize
+    img_array = np.expand_dims(img_array, axis=-1)  # channel
+    img_array = np.expand_dims(img_array, axis=0)   # batch
     return img_array
 
 # -------------------------------
