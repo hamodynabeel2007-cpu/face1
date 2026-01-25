@@ -3,9 +3,7 @@ import numpy as np
 from PIL import Image
 import tensorflow as tf
 
-# -------------------------------
-# CONFIG
-# -------------------------------
+
 st.set_page_config(
     page_title="Image Neural Network App",
     layout="centered"
@@ -14,20 +12,15 @@ st.set_page_config(
 st.title("🧠 Image Neural Network Demo")
 st.write("Upload an image and let the neural network predict!")
 
-# -------------------------------
-# LOAD MODEL
-# -------------------------------
+
 @st.cache_resource
 def load_model():
     return tf.keras.models.load_model("model (1).h5")
 
 model = load_model()
 
-# -------------------------------
-# 🔧 EDIT THESE (VERY IMPORTANT)
-# -------------------------------
 
-IMG_SIZE = 48  # 👈 change to 224 if Food-101 or 64 if UTKFace etc.
+IMG_SIZE = 48  
 
 CLASS_NAMES = [
     "Angry",
@@ -38,22 +31,16 @@ CLASS_NAMES = [
     "Surprise",
     "Neutral"
 ]
-# 👆 Change class names to match YOUR dataset
 
-# -------------------------------
-# IMAGE PREPROCESSING
-# -------------------------------
 def preprocess_image(image):
-    image = image.convert("L")          # ✅ grayscale
-    image = image.resize((48, 48))       # ✅ correct size
-    img_array = np.array(image) / 255.0  # normalize
-    img_array = np.expand_dims(img_array, axis=-1)  # channel
-    img_array = np.expand_dims(img_array, axis=0)   # batch
+    image = image.convert("L")          
+    image = image.resize((48, 48))       
+    img_array = np.array(image) / 255.0  
+    img_array = np.expand_dims(img_array, axis=-1)  
+    img_array = np.expand_dims(img_array, axis=0)   
     return img_array
 
-# -------------------------------
-# FILE UPLOAD
-# -------------------------------
+
 uploaded_file = st.file_uploader(
     "Upload an image",
     type=["jpg", "jpeg", "png"]
@@ -74,7 +61,7 @@ if uploaded_file is not None:
         st.success(f"### Prediction: **{predicted_class}**")
         st.write(f"Confidence: **{confidence * 100:.2f}%**")
 
-        # Optional: show all probabilities
+       
         st.subheader("Class Probabilities")
         for i, class_name in enumerate(CLASS_NAMES):
             st.write(f"{class_name}: {predictions[0][i] * 100:.2f}%")
